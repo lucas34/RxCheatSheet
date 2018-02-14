@@ -27,7 +27,7 @@ When the sequence is terminated (no more item will be emited) either `onComplete
 
 ## Subscriber
 
-An `observable` will start emitting only when someone is listening and will stop when no one is listening anymore.
+An `observable` *will start emitting only when someone is listening* and will stop when no one is listening anymore.
 A sequence cannot be resumed after canceling.
 `Observable<String>.create({ _ -> // Never called})`
 
@@ -69,3 +69,8 @@ Observable.create { _ -> // Caller thread }
 Observable.create { _ -> // BackgroundThread }.subscribeOn(BackgroundThread)
 Observable.create { _ -> // Caller thread }.observeOn(BackgroundThread).map { _ -> //BackgroundThread }
 ```
+
+## Hot And Cold Observable
+
+**Cold** Start to emit items only after someone subscribed.
+**Hot** emits items even before someone is listening (E.G `subject`)
