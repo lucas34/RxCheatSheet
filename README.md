@@ -28,21 +28,23 @@ When the sequence is terminated (no more item will be emited) either `onComplete
 ## Subscriber
 
 An `observable` *will start emitting only when someone is listening* and will stop when no one is listening anymore.
-A sequence cannot be resumed after canceling.
+A sequence cannot be resumed after canceling.<br />
 `Observable<String>.create({ _ -> // Never called})`
 
-Each of this following subscription will be wrapped with a `LambdaObserver` in RxJava.
+Each of this following subscription will be wrapped with a `LambdaObserver` in RxJava.<br />
 It will also return a disposable to allow canceling.
 
-`Observable<String>.subscribe(Consumer<String>)`
-`Observable<String>.subscribe(Consumer<String>, Consumer<Error>)`
-`Observable<String>.subscribe(Consumer<String>, Consumer<Error>)`
+`Observable<String>.subscribe(Consumer<String>)`<br />
+`Observable<String>.subscribe(Consumer<String>, Consumer<Error>)`<br />
+`Observable<String>.subscribe(Consumer<String>, Consumer<Error>)`<br />
 `Observable<String>.subscribe(Consumer<String>, Consumer<Error>, Action)`
 
-If you pass an `observer` as argument, the method will return void.
-To allow canceling, your `observer` has to implement `disposable` as well.
-`class MyCancelableObserver implements Observer, Disposable { //code }`
-`Observable<String>.subscribe(MyCancelableObserver)`
+If you pass an `observer` as argument, the method will return void.<br />
+To allow canceling, your `observer` has to implement `disposable` as well.<br />
+```
+class MyCancelableObserver implements Observer, Disposable { //code }
+Observable<String>.subscribe(MyCancelableObserver)
+```
 
 ## Global error handler: RxJava and RxSwift (4.0+)
 
