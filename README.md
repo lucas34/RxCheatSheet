@@ -1,4 +1,4 @@
-# RxCheatSheetRx
+# RxCheatSheet
 
 > **Observable:** Emit
 
