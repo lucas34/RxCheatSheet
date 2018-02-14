@@ -74,5 +74,5 @@ Observable.create { _ -> // Caller thread }.observeOn(BackgroundThread).map { _ 
 
 ## Hot And Cold Observable
 
-**Cold** Start to emit items only after someone subscribed.
-**Hot** emits items even before someone is listening (E.G `subject`)
+**Cold** Start to emit items only after someone subscribed.<br />>
+**Hot** emits items even before someone is listening. (E.G `subject`)
